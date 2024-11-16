@@ -150,7 +150,8 @@ set_target_properties(librw
 
 if(LIBRW_PLATFORM_GL3)
     if (LIBRW_GL3_GFXLIB STREQUAL "GLFW")
-        find_package(glfw3 REQUIRED)
+#        find_package(glfw3 REQUIRED)
+        add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/thirdpart/glfw)
         target_link_libraries(librw
             PUBLIC
                 glfw
