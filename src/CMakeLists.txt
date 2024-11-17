@@ -100,6 +100,16 @@ add_library(librw
     vk/rwvkplg.h
     vk/rwvkshader.h
     vk/rwwdvk.h
+    vk/vk.cpp
+    vk/vkdevice.cpp
+    vk/vkimmed.cpp
+    vk/vkmatfx.cpp
+    vk/vkpipe.cpp
+    vk/vkraster.cpp
+    vk/vkrender.cpp
+    vk/vkshader.cpp
+    vk/vkskin.cpp
+    vk/wdvk.cpp
 )
 add_library(librw::librw ALIAS librw)
 
