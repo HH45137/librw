@@ -94,6 +94,12 @@ add_library(librw
     ps2/rwps2.h
     ps2/rwps2impl.h
     ps2/rwps2plg.h
+
+    vk/rwvk.h
+    vk/rwvkimpl.h
+    vk/rwvkplg.h
+    vk/rwvkshader.h
+    vk/rwwdvk.h
 )
 add_library(librw::librw ALIAS librw)
 
@@ -191,6 +197,18 @@ elseif(LIBRW_PLATFORM_D3D9)
             d3d9
             xinput
     )
+elseif (LIBRW_PLATFORM_VULKAN)
+    if (LIBRW_GL3_GFXLIB STREQUAL "GLFW")
+        #        find_package(glfw3 REQUIRED)
+        add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/thirdpart/glfw)
+        target_link_libraries(librw
+                PUBLIC
+                glfw
+        )
+    endif ()
+
+    find_package(Vulkan REQUIRED)
+    target_link_libraries(librw PUBLIC Vulkan::Vulkan)
 endif()
 
 if(LIBRW_INSTALL)

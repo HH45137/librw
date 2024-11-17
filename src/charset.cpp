@@ -12,6 +12,7 @@
 #include "ps2/rwps2.h"
 #include "d3d/rwd3d.h"
 #include "gl/rwgl3.h"
+#include "vk/rwvk.h"
 
 
 #define PLUGIN_ID 1000	// TODO: find a better ID
@@ -33,6 +34,8 @@ const uint8 fontbits[256*256] = {
 #define NUMCHARS 100
 static uint16 *indices;
 static RWDEVICE::Im2DVertex *vertices;
+
+
 static int32 numChars;
 static Raster *lastRaster;
 

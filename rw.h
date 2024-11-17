@@ -23,3 +23,9 @@
 #include "src/gl/rwgl3.h"
 #include "src/gl/rwgl3shader.h"
 #include "src/gl/rwgl3plg.h"
+
+#include "src/vk/rwvk.h"
+#include "src/vk/rwvkimpl.h"
+#include "src/vk/rwvkplg.h"
+#include "src/vk/rwvkshader.h"
+#include "src/vk/rwwdvk.h"

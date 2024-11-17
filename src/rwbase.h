@@ -15,6 +15,11 @@
 //#define RW_GL_USE_VAOS
 #endif
 
+#ifdef RW_VULKAN
+#define RW_VULKAN
+#define RWDEVICE vk
+#endif
+
 #ifdef RW_GLES2
 #define RW_GLES
 #endif
@@ -540,6 +545,8 @@ enum Platform
 
 	PLATFORM_WDGL = 11,	// WarDrum OpenGL
 	PLATFORM_GL3  = 12,	// my GL3 implementation
+
+	PLATFORM_VK = 13,	// my Vulkan implementation
 
 	NUM_PLATFORMS,
 
