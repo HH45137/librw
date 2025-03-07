@@ -1,13 +1,15 @@
 
-namespace rw {
-namespace wdvk {
+namespace rw
+{
+namespace wdvk
+{
 
 // NOTE: This is not really RW OpenGL! It's specific to WarDrum's GTA ports
 
-void registerPlatformPlugins(void);
+void
+registerPlatformPlugins(void);
 
-struct AttribDesc
-{
+struct AttribDesc {
 	// arguments to glVertexAttribPointer (should use OpenGL types here)
 	// Vertex = 0, TexCoord, Normal, Color, Weight, Bone Index, Extra Color
 	uint32 index;
@@ -19,8 +21,7 @@ struct AttribDesc
 	uint32 offset;
 };
 
-struct InstanceDataHeader : rw::InstanceDataHeader
-{
+struct InstanceDataHeader : rw::InstanceDataHeader {
 	int32 numAttribs;
 	AttribDesc *attribs;
 	uint32 dataSize;
@@ -32,19 +33,29 @@ struct InstanceDataHeader : rw::InstanceDataHeader
 };
 
 // only RW_OPENGL
-void uploadGeo(Geometry *geo);
-void setAttribPointers(InstanceDataHeader *inst);
+void
+uploadGeo(Geometry *geo);
+void
+setAttribPointers(InstanceDataHeader *inst);
 
-void packattrib(uint8 *dst, float32 *src, AttribDesc *a, float32 scale);
-void unpackattrib(float *dst, uint8 *src, AttribDesc *a, float32 scale);
+void
+packattrib(uint8 *dst, float32 *src, AttribDesc *a, float32 scale);
+void
+unpackattrib(float *dst, uint8 *src, AttribDesc *a, float32 scale);
 
-void *destroyNativeData(void *object, int32, int32);
-Stream *readNativeData(Stream *stream, int32 len, void *object, int32, int32);
-Stream *writeNativeData(Stream *stream, int32 len, void *object, int32, int32);
-int32 getSizeNativeData(void *object, int32, int32);
-void registerNativeDataPlugin(void);
+void *
+destroyNativeData(void *object, int32, int32);
+Stream *
+readNativeData(Stream *stream, int32 len, void *object, int32, int32);
+Stream *
+writeNativeData(Stream *stream, int32 len, void *object, int32, int32);
+int32
+getSizeNativeData(void *object, int32, int32);
+void
+registerNativeDataPlugin(void);
 
-void printPipeinfo(Atomic *a);
+void
+printPipeinfo(Atomic *a);
 
 class ObjPipeline : public rw::ObjPipeline
 {
@@ -57,32 +68,40 @@ public:
 	void (*uninstanceCB)(Geometry *g);
 };
 
-ObjPipeline *makeDefaultPipeline(void);
+ObjPipeline *
+makeDefaultPipeline(void);
 
 // Skin plugin
 
-void initSkin(void);
-Stream *readNativeSkin(Stream *stream, int32, void *object, int32 offset);
-Stream *writeNativeSkin(Stream *stream, int32 len, void *object, int32 offset);
-int32 getSizeNativeSkin(void *object, int32 offset);
+void
+initSkin(void);
+Stream *
+readNativeSkin(Stream *stream, int32, void *object, int32 offset);
+Stream *
+writeNativeSkin(Stream *stream, int32 len, void *object, int32 offset);
+int32
+getSizeNativeSkin(void *object, int32 offset);
 
-ObjPipeline *makeSkinPipeline(void);
+ObjPipeline *
+makeSkinPipeline(void);
 
 // MatFX plugin
 
-void initMatFX(void);
-ObjPipeline *makeMatFXPipeline(void);
+void
+initMatFX(void);
+ObjPipeline *
+makeMatFXPipeline(void);
 
 // Raster
 
-struct Texture : rw::Texture
-{
+struct Texture : rw::Texture {
 	void upload(void);
 	void bind(int n);
 };
 
 extern int32 nativeRasterOffset;
-void registerNativeRaster(void);
+void
+registerNativeRaster(void);
 
-}
-}
+} // namespace wdvk
+} // namespace rw
